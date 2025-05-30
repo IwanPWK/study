@@ -1,0 +1,103 @@
+3. Pengenalan Version Control
+tidak ada sintax command
+
+
+4. Pengenalan Git
+di menit menit terakhir
+
+
+6. Repository
+untuk membuat repository -> git init
+
+memeriksa perubahan apapun yang terjadi -> git status
+
+7. Workflow
+3 state -> 
+modified -> Tahap tempat dimana melakukan perubahan atau pembuatan file
+staged -> Tahap Dilakukan penandaan guna disimpan di repositori
+committed -> tahap penyimpanan file bertanda di repository
+
+
+3 section
+working directory -> tempat dilakukan pembuatan atau pengeditan
+staging area -> tempat file sudah diberi penanda siap disimpan
+repository -> tempat penyimpanan
+
+sintax
+git add = working directory -> Staging Index
+git commit = staging index -> repository
+
+
+8 Hash 
+perubahan yang terjadi setelah melakukan commit -> snapshot -> hasilnya hash -> hash berbeda, misalkan ada perubahan paksa atau lainnya, sehingga hash berbeda dengan saat  hash hasil commit -> invalid
+sehingga hash == penanda integritas pada file yang di commit/disimpan
+
+HEAD -> pointer menuju hash yang paling terakhir/terbaru
+
+9. menambah file
+menandai file
+git add namaFile.extensi
+menyimpan ke repositori
+git commit -m "message"
+
+10. mengubah file
+git diff -> untuk melihat perbedaan perubahan apa yang terjadi (asalkan file sudah di commit sebelumnya)
+git add namaFile.ext namaFile2.ext dst atau git add .
+
+12. membatalkan perubahan
+git clean -f -> membatalkan penambahan file, banyak file (memaksa) saat masih di working directory
+git restore namaFile.ext -> membatalkan perubahan atau penghapusan file di working directory
+git restore --staged namaFile.ext -> mengembalikan posisi dari staging index ke working directory
+
+
+13. Commit log
+git log -> melihat history aktivitas git
+git log --oneline --> versi singkat
+git log --oneline --graph --> melihat commit log dengan hubungannya commit log sebelumnya (branching) 
+git show hash --> hash diisi yang ingin dilihat detail commit history
+
+14. Compare Commit
+git diff hash1 hash2 -> membandingkan commit
+git difftool hash1 hash2 -> melihat perbedaan antar commit jika menggunakan vs code
+
+16. Reset Commit
+git reset <mode> hash -> menggeser HEAD commit
+mode:
+--soft -> memindahkan HEAD pointer, namun tidak melakukan perubahan apapun di Staging index dan working directory (masih bisa maju mundur asalkan belum ada commit baru, jika ada, maka akan ditimpa)
+--mixed (default) -> memindahkan HEAD pointer, mengubah Staging index menjadi sama seperti dengan Repository, namun tidak mengubah apapun di Working Directory, (masih bisa maju mundur asalkan belum ada commit baru, jika ada, maka akan ditimpa)
+--hard -> memindahkan HEAD pointer, dan mengubah Staging Index dan Working Directory sehingga sama dengan Repository, (masih bisa maju mundur asalkan belum ada commit baru, jika ada, maka akan ditimpa
+
+17. Amend Commit
+git commit --amend -m "message" -> commit ditambahkan ke snapshot terakhir, ditimpa ke snapshot terakhir, tidak membuat snapshot tapi hash berubah
+
+18. Versi Sebelumnya
+git checkout hash -- namafile -> melihat isi versi snapshot/commit sebelumnya, file akan berada di Staging Index, beda dengan menggeser HASH
+
+
+19. Snapshot Sebelumnya
+git checkout hash -> melihat state snapshot berdasarkan hash
+git checkout namabranch -> ingin kembali ke paling awal
+git branch --show-current -> melihat branch saat ini
+
+20. Revert Commit
+git revert hash -> membalikkan commit berdasarkan hash dengan cara membuat commit baru
+
+21. ignore
+file .gitignore
+# ignore folder log
+log/
+
+# ignore file extension .backup
+*.backup
+
+# ignore ignore.txt
+ignore.txt
+
+22. Blame
+git blame namaFile -> mengetahui siapa yang commit dan apa commitnya
+git show hash -> melihat detail setelah menggunakan git blame
+
+23. Alias
+me-alias command-command git
+contoh
+git config --global alias.ko commit

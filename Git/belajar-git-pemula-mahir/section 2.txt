@@ -1,0 +1,42 @@
+27. Branch
+git branch --show-current -> melihat nama branch saat ini
+
+git branch namabranchbaru -> membuat branch baru
+
+git branch --list atau git branch -> melihat semua branch yang ada di repository
+
+git switch namabranch atau git checkout namabranch -> pindah ke branch lain 
+
+pindah ke branch yang ingin diubah nama + git branch -m namabranchbaru -> mengubah nama branch
+
+tidak di branch yang ingin dihapus + git branch -d namabranch atau git branch --delete namabranch -> menghapus branch
+
+29. Merge
+berada di branch utama + git merge namabranch -> melakukan merge namabranch ke branch utama
+
+30. merge conflict
+git merge --abort -> membatalkan merge, misalkan karena adanya conflict
+
+31. Cherry Pick
+git cherry-pick commitId -> merge berdasarkan commitId, berguna bila hanya ingin merge perubahan tertentu saja
+
+32. Tag
+git tag tagName commitId -> membuat Tag untuk commit, seperti halnya HEAD
+git tag-l atau git tag --list -> menampilkan semua tag yang ada di Repository
+git checkout tagname -> melihat snapshot sebelumnya di GIT alternatif commitId
+git checkout master -> kembali ke snapshot terbaru
+git tag -d namatag atau git tag --delete namatag -> menghapus tag, tidak ada cara mengubah tag, hanya bisa menghapus dan menambah
+
+33. Stash
+git stash push -m 'message stash'-> melakukan penyimpanan ke Stash (bersifat sementara) jika ada conflict tidak bisa ke repository
+git stash list -> melihat semua stash
+git stash show stashId -> melihat perubahan yang terjadi di Stash
+git stash apply stashId -> mengambil perubahan di stash
+git stash drop stashId -> menghapus stash
+git stash clear -> menghapus semua stash
+
+34. Rebase
+git rebase namabranch -> melakukan rebase
+
+35. squash
+git merge --squash namabranch -> melakukan squash
